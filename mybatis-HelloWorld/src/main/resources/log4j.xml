@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+    <appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%p][%d{yyyy-MM-dd HH:mm:ss SSS}][%c]-[%m]%n" />
+        </layout>
+    </appender>
+
+    <appender name="DEBUG" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="/data/eclog/ec-debug.log" />
+        <param name="Append" value="true" />
+        <param name="MaxFileSize" value="500KB" />
+        <param name="MaxBackupIndex" value="2" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%p][%d{HH:mm:ss SSS}][%c]-[%m]%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="DEBUG" />
+            <param name="LevelMax" value="DEBUG" />
+        </filter>
+    </appender>
+
+    <appender name="INFO" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="/data/eclog/ec-info.log" />
+        <param name="Append" value="true" />
+        <param name="MaxFileSize" value="500KB" />
+        <param name="MaxBackupIndex" value="10" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%p][%d{HH:mm:ss SSS}][%c]-[%m]%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="INFO" />
+            <param name="LevelMax" value="INFO" />
+        </filter>
+    </appender>
+
+    <appender name="WARN" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="/data/eclog/ec-warn.log" />
+        <param name="Append" value="true" />
+        <param name="MaxFileSize" value="500KB" />
+        <param name="MaxBackupIndex" value="10" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%p][%d{HH:mm:ss SSS}][%c]-[%m]%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="WARN" />
+            <param name="LevelMax" value="WARN" />
+        </filter>
+    </appender>
+
+    <appender name="ERROR" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="/data/eclog/ec-error.log" />
+        <param name="Append" value="true" />
+        <param name="MaxFileSize" value="500KB" />
+        <param name="MaxBackupIndex" value="10" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%p][%d{HH:mm:ss SSS}][%c]-[%m]%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="ERROR" />
+            <param name="LevelMax" value="ERROR" />
+        </filter>
+    </appender>
+    <!-- 1. 指定logger的设置，additivity是否遵循缺省的继承机制 2. 当additivity="false"时，root中的配置就失灵了，不遵循缺省的继承机制
+        3. 代码中使用Logger.getLogger("logDiy")获得此输出器，且不会使用根输出器 -->
+    <logger name="logDiy" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="INFO" />
+    </logger>
+    <root>
+        <priority value="debug" />
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="DEBUG" />
+        <appender-ref ref="INFO" />
+        <appender-ref ref="WARN" />
+        <appender-ref ref="ERROR" />
+    </root>
+</log4j:configuration>

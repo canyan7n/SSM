@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="studentOne" class="com.canyan7n.spring.pojo.Student">
+        <property name="sId" value="1001"></property>
+        <property name="sName" value="张三"></property>
+        <property name="sClazz" ref="clazzTwo"></property>
+<!--        级联方式-->
+<!--        <property name="sClazz.cId" value="10002"></property>-->
+<!--        <property name="sClazz.cName" value="和平精英班"></property>-->
+        <property name="sHobby">
+            <array>
+                <null></null>
+            </array>
+        </property>
+        <property name="teacherMap" ref="teacherMap"></property>
+<!--        <property name="teacherMap">-->
+<!--            <map>-->
+<!--                <entry key="10086" value-ref="teacherOne"></entry>-->
+<!--            </map>-->
+<!--        </property>-->
+
+    </bean>
+
+<!--    <bean id="studentTwo" class="com.canyan7n.spring.pojo.Student">-->
+<!--        <constructor-arg value="1001"></constructor-arg>-->
+<!--    </bean>-->
+
+<!--    p命名空间-->
+    <bean id="studentTwo" class="com.canyan7n.spring.pojo.Student" p:sId="1002" p:sName="李四"></bean>
+
+    <bean id="clazzOne" class="com.canyan7n.spring.pojo.Clazz">
+        <property name="cId" value="2001"></property>
+        <property name="cName" value="王者荣耀班"></property>
+        <property name="students" ref="studentList"></property>
+<!--        <property name="students">-->
+<!--            <list>-->
+<!--                <ref bean="studentOne"></ref>-->
+<!--            </list>-->
+<!--        </property>-->
+     </bean>
+
+    <bean id="clazzTwo" class="com.canyan7n.spring.pojo.Clazz">
+        <property name="cId" value="2002"></property>
+        <property name="cName" value="和平精英班"></property>
+    </bean>
+
+    <bean id="teacherOne" class="com.canyan7n.spring.pojo.Teacher">
+        <property name="tId" value="3001"></property>
+        <property name="tName" value="大宝"></property>
+    </bean>
+
+    <util:list id="studentList">
+        <ref bean="studentOne"></ref>
+    </util:list>
+
+    <util:map id="teacherMap">
+        <entry key="10086" value-ref="teacherOne"></entry>
+    </util:map>
+
+</beans>
