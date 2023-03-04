@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  * @description：TODO
  * @date ：2023/2/25 19:22
  */
-@Repository
+//@Repository
 public class UserDaoImpl implements UserDao {
 
     @Override

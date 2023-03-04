@@ -11,10 +11,10 @@ import org.springframework.stereotype.Service;
  * @description：TODO
  * @date ：2023/2/25 19:21
  */
-@Service
+//@Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
+//    @Autowired
 //    @Qualifier("userDaoImpl")
     private UserDao userDao;
 
