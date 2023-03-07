@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <bean id="userController" class="com.canyan7n.spring.controller.UserController" autowire="byName"></bean>
+    <bean id="userService" class="com.canyan7n.spring.service.impl.UserServiceImpl" autowire="byName"></bean>
+    <bean id="userDao" class="com.canyan7n.spring.dao.impl.UserDaoImpl" autowire="byName"></bean>
+</beans>

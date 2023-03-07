@@ -17,8 +17,9 @@ public class StaticProxyTest {
 
     @Test
     public void testJDKProxy(){
-        ProxyFactory proxyFactory = new ProxyFactory(new CalculatorImpl());
-        Calculator proxy = (Calculator) proxyFactory.getProxy();
-        proxy.div(1,0);
+        JDKProxy proxyFactory = new JDKProxy();
+        CalculatorImpl calculator = new CalculatorImpl();
+        Calculator proxy = (Calculator) proxyFactory.getProxy(calculator);
+        proxy.div(12,6);
     }
 }
