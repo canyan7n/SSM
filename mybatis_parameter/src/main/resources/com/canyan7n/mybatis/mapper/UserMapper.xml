@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.canyan7n.mybatis.mapper.UserMapper">
+<mapper namespace="com.canyan7n.mybatis.mapper.SelectMapper">
     <!--
         mapper接口和映射文件要保证两个一致
         1.mapper接口的全类名和映射文件的namespace的id值保持一致
