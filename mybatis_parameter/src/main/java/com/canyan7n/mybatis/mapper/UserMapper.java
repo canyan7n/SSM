@@ -7,23 +7,23 @@ import java.util.Map;
 
 public interface UserMapper {
 
-    /*
+    /**
     根据id返回用户
      */
     User getUserById();
 
-    /*
+    /**
     根据username返回用户
      */
     User getUserByName(String username);
 
-    /*
+    /**
     验证登录
     根据username和password返回用户
      */
     User checkUserByNamePass(String username, String password);
 
-    /*
+    /**
     验证登录
     根据map集合返回用户，用户名和密码放在map中
      */
