@@ -12,6 +12,9 @@ import java.util.Map;
 import java.util.Objects;
 
 public class MybatisTest {
+    /**
+     * 根据id查询用户
+     */
     @Test
     public void testSelect01(){
         SqlSession sqlSession = new SqlSesionUtil().getSqlSession();
@@ -19,6 +22,10 @@ public class MybatisTest {
         User user = mapper.getUserById();
         System.out.println(user);
     }
+
+    /**
+     * 根据用户名查询用户
+     */
 
     @Test
     public void testSelect02(){
@@ -28,6 +35,9 @@ public class MybatisTest {
         System.out.println(user);
     }
 
+    /**
+     * 验证登录，mybatis封装的map传过去
+     */
     @Test
     public void testSelect03(){
         SqlSession sqlSession = new SqlSesionUtil().getSqlSession();
@@ -35,6 +45,10 @@ public class MybatisTest {
         User user = mapper.checkUserByNamePass("admins","123456");
         System.out.println(user);
     }
+
+    /**
+     * 验证登录，自己传map过去
+     */
 
     @Test
     public void testSelect04(){
@@ -48,6 +62,9 @@ public class MybatisTest {
         System.out.println(user);
     }
 
+    /**
+     * 验证登录，传用户，实体类
+     */
     @Test
     public void testSelect05(){
         SqlSession sqlSession = new SqlSesionUtil().getSqlSession();
@@ -56,6 +73,9 @@ public class MybatisTest {
         System.out.println(user);
     }
 
+    /**
+     * 传用户实体类，插入数据
+     */
     @Test
     public  void  testInsertUser(){
         SqlSession sqlSession = new SqlSesionUtil().getSqlSession();
