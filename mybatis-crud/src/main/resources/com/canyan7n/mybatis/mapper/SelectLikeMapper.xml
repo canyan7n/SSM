@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.canyan7n.mybatis.mapper.SelectLikeMapper">
+    <!--
+        mapper接口和映射文件要保证两个一致
+        1.mapper接口的全类名和映射文件的namespace的id值保持一致
+        2.mapper接口中的方法的方法名要和映射文件的sql的id值保持一致
+    -->
+
+<!--    List getUserByLike(@Param("mohu") String mohu);-->
+    <select id="getUserByLike" resultType="User">
+<!--        select * from t_user where username like '%${mohu}%'-->
+        select * from t_user where username like "%"#{mohu}"%"
+<!--        select * from t_user where username like concat('%',#{mohu},'%')-->
+    </select>
+</mapper>

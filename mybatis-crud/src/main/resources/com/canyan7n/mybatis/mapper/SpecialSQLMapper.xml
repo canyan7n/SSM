@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.canyan7n.mybatis.mapper.SpecialSQLMapper">
+    <!--
+        mapper接口和映射文件要保证两个一致
+        1.mapper接口的全类名和映射文件的namespace的id值保持一致
+        2.mapper接口中的方法的方法名要和映射文件的sql的id值保持一致
+    -->
+<!--    void deleteMoreById();-->
+    <delete id="deleteMoreById">
+        delete from t_user where id in (${ids})
+    </delete>
+
+<!--    List getAllUserByTabName(String tableName);-->
+    <select id="getAllUserByTabName" resultType="User">
+        select * from ${tableName}
+    </select>
+
+<!--    void insertUser(User user);-->
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
+        insert into t_user values(null,#{username},#{password},#{age},#{gender},#{email})
+    </insert>
+</mapper>

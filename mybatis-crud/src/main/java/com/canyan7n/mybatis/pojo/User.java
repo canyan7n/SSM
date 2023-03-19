@@ -7,7 +7,7 @@ package com.canyan7n.mybatis.pojo;
  */
 public class User {
 
-    private int id;
+    private Integer id;
 
     private String username;
 
@@ -18,6 +18,18 @@ public class User {
     private String gender;
 
     private String email;
+
+    public User() {
+    }
+
+    public User(Integer id, String username, String password, int age, String gender, String email) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.age = age;
+        this.gender = gender;
+        this.email = email;
+    }
 
     public int getId() {
         return id;
