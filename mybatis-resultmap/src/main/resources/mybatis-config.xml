@@ -6,9 +6,9 @@
     <!-- 配置连接数据库的环境 -->
     <properties resource="jdbc.properties"></properties>
 <!--    开启下划线到驼峰的映射-->
-<!--    <settings>-->
-<!--        <setting name="mapUnderscoreToCamelCase" value="true"/>-->
-<!--    </settings>-->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
     <!--    给包下的类起别名，默认是类名，不区分大小写-->
     <typeAliases>
         <!--        <typeAlias type="com.canyan7n.mybatis.pojo.User" />-->
