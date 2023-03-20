@@ -8,13 +8,47 @@
         1.mapper接口的全类名和映射文件的namespace的id值保持一致
         2.mapper接口中的方法的方法名要和映射文件的sql的id值保持一致
     -->
+
+<!--    不相干-->
 <!--    Dept getDeptById(@Param("deptId") Integer deptId);-->
     <select id="getDeptById" resultType="Dept">
         select * from dept where dept_id = #{deptId}
     </select>
 
+<!--    多对一-->
 <!--    Dept getEmpAndDeptByStepTwo(@Param("deptId") Integer deptId);-->
     <select id="getEmpAndDeptByStepTwo" resultType="Dept">
+        select * from dept where dept_id = #{deptId}
+    </select>
+
+<!--    一对多-->
+    <!--    collection-->
+    <resultMap id="DeptAndEmpResultMap" type="Dept">
+        <id column="dept_id" property="deptId"></id>
+        <result column="dept_name" property="deptName"></result>
+        <collection property="emps" ofType="Emp">
+            <id column="emp_id" property="empId"></id>
+            <result column="emp_name" property="empName"></result>
+            <result column="age" property="age"></result>
+            <result column="genger" property="gender"></result>
+        </collection>
+    </resultMap>
+<!--    Dept getDeptAndEmpByDeptId(@Param("deptId") Integer deptId);-->
+    <select id="getDeptAndEmpByDeptId" resultMap="DeptAndEmpResultMap">
+        select * from dept left join emp on dept.dept_id = emp.dept_id where dept.dept_id = #{deptId}
+    </select>
+
+    <!--    分步-->
+    <resultMap id="DeptAndEmpByStepResultMap" type="Dept">
+        <id column="dept_id" property="deptId"></id>
+        <result column="dept_name" property="deptName"></result>
+        <association property="emps"
+                     select="com.canyan7n.mybatis.mapper.EmpMapper.getDeptAndEmpByStepTwo"
+                     column="dept_id" fetchType="eager">
+        </association>
+    </resultMap>
+    <!--    Dept getDeptAndEmpByStepOne(@Param("deptId") Integer deptId);-->
+    <select id="getDeptAndEmpByStepOne" resultMap="DeptAndEmpByStepResultMap">
         select * from dept where dept_id = #{deptId}
     </select>
 </mapper>

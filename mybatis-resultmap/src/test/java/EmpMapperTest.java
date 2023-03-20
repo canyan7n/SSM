@@ -1,4 +1,6 @@
+import com.canyan7n.mybatis.mapper.DeptMapper;
 import com.canyan7n.mybatis.mapper.EmpMapper;
+import com.canyan7n.mybatis.pojo.Dept;
 import com.canyan7n.mybatis.pojo.Emp;
 import com.canyan7n.mybatis.utils.SqlSessionUtil;
 import org.apache.ibatis.session.SqlSession;
@@ -34,6 +36,8 @@ public class EmpMapperTest {
         SqlSession sqlSession = SqlSessionUtil.getSqlSession();
         EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
         Emp emp = mapper.getEmpandDeptByStepOne(2);
-        System.out.println(emp);
+        System.out.println(emp.getEmpName());
     }
+
+
 }

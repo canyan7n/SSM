@@ -8,6 +8,8 @@
 <!--    开启下划线到驼峰的映射-->
     <settings>
         <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="lazyLoadingEnabled" value="true"/>
+<!--        <setting name="aggressiveLazyLoading" value="true"/>-->
     </settings>
     <!--    给包下的类起别名，默认是类名，不区分大小写-->
     <typeAliases>

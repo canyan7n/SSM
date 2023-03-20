@@ -20,4 +20,19 @@ public class DeptMapperTest {
         Dept dept = mapper.getDeptById(1);
         System.out.println(dept);
     }
+
+    @Test
+    public void testGetDeptAndEmpByDeptId(){
+        SqlSession sqlSession = SqlSessionUtil.getSqlSession();
+        DeptMapper mapper = sqlSession.getMapper(DeptMapper.class);
+        Dept dept = mapper.getDeptAndEmpByDeptId(1);
+        System.out.println(dept);
+    }
+    @Test
+    public void testGetDeptAndEmpByStep(){
+        SqlSession sqlSession = SqlSessionUtil.getSqlSession();
+        DeptMapper mapper = sqlSession.getMapper(DeptMapper.class);
+        Dept dept = mapper.getDeptAndEmpByStepOne(2);
+        System.out.println(dept);
+    }
 }

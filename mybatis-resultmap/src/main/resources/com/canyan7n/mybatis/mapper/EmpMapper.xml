@@ -9,13 +9,22 @@
         2.mapper接口中的方法的方法名要和映射文件的sql的id值保持一致
     -->
 
-<!--    一对一-->
+<!--    一对一               -->
     <resultMap id="EmpResultMap" type="Emp">
         <id column="emp_id" property="empId"></id>
         <result column="emp_name" property="empName"></result>
         <result column="age" property="age"></result>
         <result column="gender" property="gender"></result>
     </resultMap>
+<!--    Emp getEmpById(@Param("emp_id") int emp_id);-->
+    <select id="getEmpById" resultMap="EmpResultMap">
+        select * from emp where emp_id = #{emp_id}
+    </select>
+    <select id="getEmpByIdOld" resultType="Emp">
+<!--        select emp_id empId,emp_name empName,age,gender from emp where emp_id = #{emp_id}-->
+        select * from emp where emp_id = #{emp_id}
+    </select>
+
 <!--    多对一-->
     <resultMap id="empAndDeptResultMap" type="Emp">
         <id column="emp_id" property="empId"></id>
@@ -30,39 +39,15 @@
         <result column="emp_name" property="empName"></result>
         <result column="age" property="age"></result>
         <result column="gender" property="gender"></result>
-<!--        association:处理多对一映射
-            property:处理的实体类属性，javaType:属性的类型
-            column字段名property实体类属性的成员属性名-->
+        <!--        association:处理多对一映射
+                    property:处理的实体类属性，javaType:属性的类型
+                    column字段名property实体类属性的成员属性名-->
         <association property="dept" javaType="Dept">
             <id column="dept_id" property="deptId"></id>
             <result column="dept_name" property="deptName"></result>
         </association>
     </resultMap>
-    <resultMap id="empAndDeptByStepResultMap" type="Emp">
-        <id column="emp_id" property="empId"></id>
-        <result column="emp_name" property="empName"></result>
-        <result column="age" property="age"></result>
-        <result column="gender" property="gender"></result>
-<!--    property映射的实体类属性
-        select下一步查询的sql唯一标识
-        column下一步查询的sql的查询条件-->
-        <association property="dept"
-                     select="com.canyan7n.mybatis.mapper.DeptMapper.getEmpAndDeptByStepTwo"
-                     column="dept_id">
-        </association>
-    </resultMap>
 
-<!--    一对一               -->
-<!--    Emp getEmpById(@Param("emp_id") int emp_id);-->
-    <select id="getEmpById" resultMap="EmpResultMap">
-        select * from emp where emp_id = #{emp_id}
-    </select>
-    <select id="getEmpByIdOld" resultType="Emp">
-<!--        select emp_id empId,emp_name empName,age,gender from emp where emp_id = #{emp_id}-->
-        select * from emp where emp_id = #{emp_id}
-    </select>
-
-<!--    多对一-->
 <!--    Emp getEmpAndDeptById(@Param("empId") Integer empId);-->
     <select id="getEmpAndDeptById" resultMap="empAndDeptResultMapAsso">
         select * from emp
@@ -71,8 +56,28 @@
         where emp_id = #{empId}
     </select>
 
+<!--    分步-->
+    <resultMap id="empAndDeptByStepResultMap" type="Emp">
+        <id column="emp_id" property="empId"></id>
+        <result column="emp_name" property="empName"></result>
+        <result column="age" property="age"></result>
+        <result column="gender" property="gender"></result>
+        <!--    property映射的实体类属性
+                select下一步查询的sql唯一标识
+                column下一步查询的sql的查询条件-->
+        <association property="dept"
+                     select="com.canyan7n.mybatis.mapper.DeptMapper.getEmpAndDeptByStepTwo"
+                     column="dept_id">
+        </association>
+    </resultMap>
 <!--    Emp getEmpandDeptByStepOne(@Param("empId") Integer empId);-->
     <select id="getEmpandDeptByStepOne" resultMap="empAndDeptByStepResultMap">
         select * from emp where emp_id = #{empId}
+    </select>
+
+<!--    一对多-->
+<!--    Emp getDeptAndEmpByStepTwo(@Param("empId") Integer empId);-->
+    <select id="getDeptAndEmpByStepTwo" resultType="Emp">
+        select * from emp where dept_id = #{deptId}
     </select>
 </mapper>
