@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.canyan7n.mybatis.mapper.CacheMapper">
+    <!--
+        mapper接口和映射文件要保证两个一致
+        1.mapper接口的全类名和映射文件的namespace的id值保持一致
+        2.mapper接口中的方法的方法名要和映射文件的sql的id值保持一致
+    -->
+
+    <cache />
+<!--    Emp getEmpByEmpId(@Param("empId") Integer empId);-->
+    <select id="getEmpByEmpId" resultType="Emp">
+        select * from emp where emp_id = #{empId}
+    </select>
+
+<!--    void insertEmp(@Param("emp") Emp emp);-->
+    <insert id="insertEmp">
+        insert into emp values(null,#{emp.empName},#{emp.age},#{emp.gender},null)
+    </insert>
+</mapper>
