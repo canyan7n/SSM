@@ -67,6 +67,9 @@ public class CacheMapperTest {
         Emp emp1 = mapper1.getEmpByEmpId(1);
         System.out.println(emp1);
         //关闭sqlSession1，使一级缓存生效
+         Emp emp = new Emp(null, "小明5", 20, "男");
+        //进行增删改
+        mapper1.insertEmp(emp);
         sqlSession1.close();
         //再次查询，命中二级缓存
         CacheMapper mapper2 = sqlSession2.getMapper(CacheMapper.class);
