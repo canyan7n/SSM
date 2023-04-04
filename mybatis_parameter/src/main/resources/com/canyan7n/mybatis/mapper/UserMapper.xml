@@ -11,18 +11,23 @@
     <select id="getUserById" resultType="User">
         select * from t_user where id = 3
     </select>
+
     <select id="getUserByName" resultType="User">
         select * from t_user where username = #{asd}
     </select>
+
     <select id="checkUserByNamePass" resultType="User">
         select * from t_user where username = #{arg0} and password = #{arg1}
     </select>
+
     <select id="checkUserByMap" resultType="User">
         select * from t_user where username = #{username} and password = #{password}
     </select>
+
     <select id="checkLoginByParam" resultType="User">
         select * from t_user where username = #{username} and password = #{password}
     </select>
+
     <insert id="insertUser">
         insert into t_user values(null,#{username},#{password},#{age},#{gender},#{email})
     </insert>

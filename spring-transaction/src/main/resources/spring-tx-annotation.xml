@@ -28,5 +28,4 @@
 
 <!--    开启事务驱动-->
     <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
-
 </beans>

@@ -21,7 +21,5 @@ public class TxByAnnotationTest {
     @Test
     public void testByBook(){
         bookController.buyBook(1,1);
-
-
     }
 }
