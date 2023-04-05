@@ -1,6 +1,7 @@
 package com.canyan7n.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -31,5 +32,11 @@ public class TestRequestMapping {
     @RequestMapping("/**/com")
     public String testant(){
         return "complete";
+    }
+
+    @RequestMapping("test/placehold/{username}/{id}")
+    public String testplacehold(@PathVariable("username") String username, @PathVariable("id") Integer id){
+        System.out.println("id=" + id + ",username=" + username);
+        return "success";
     }
 }
