@@ -1,33 +1,35 @@
-package com.canyan7n.spring.controller;
+package com.canyan7n.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * @author ：macheng
+ * @version V1.0
+ * @ClassName :TestRequestMapping
+ * @date ：2023/4/5 15:46
  * @description：TODO
- * @date ：2023/3/9 23:19
  */
 @Controller
-public class HelloController {
+public class TestRequestMapping {
 
     @RequestMapping("/")
-    public String protal(){
+    public String index(){
         return "index";
     }
+
     @RequestMapping(value = {"/hello","/hello1"},
-                    method = {RequestMethod.POST,RequestMethod.GET},
-                    headers = "referer"
-//                    ,params = {"user","pwd","age=21","gender!=男","!sex"}
+                method = {RequestMethod.POST,RequestMethod.GET},
+//                params = {"username","!password","age=21","gender!=男"}
+                headers = {"referer"}
     )
     public String hello(){
         return "success";
     }
-    @GetMapping("/com")
-    public String com(){
+
+    @RequestMapping("/**/com")
+    public String testant(){
         return "complete";
     }
 }
-

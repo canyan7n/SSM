@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>index</title>
+    <title>首页</title>
 </head>
 <body>
+<h1>首页</h1>
+<a th:href="@{/hello}">success</a>
+<a th:href="@{/hello1}">success</a>
+<form th:action="@{/hello}" method="post">
+    <input type="submit" value="xxx">
+</form>
 
+<a th:href="@{/com}">测试@PutMapping</a>
+<form th:action="@{/com}" method="post">
+    <input type="submit" value="xxx">
+</form>
 </body>
 </html>
