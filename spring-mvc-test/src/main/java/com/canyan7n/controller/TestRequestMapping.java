@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @author ：macheng
  * @version V1.0
@@ -39,4 +41,6 @@ public class TestRequestMapping {
         System.out.println("id=" + id + ",username=" + username);
         return "success";
     }
+
+
 }

@@ -15,5 +15,11 @@
 <a th:href="@{/hello(username='admin')}">测试注解@RequestMapping的param属性</a><br>
 <a th:href="@{/aaa/com}">测试注解@RequestMapping的ant格式</a><br>
 <a th:href="@{/test/placehold/admin/1}">测试注解@RequestMapping的占位符格式</a><br>
+<hr>
+<form th:action="@{/params}" method="post">
+    <input type="text" name="userName">
+    <input type="password" name="password">
+    <input type="submit" value="登录">
+</form>
 </body>
 </html>
