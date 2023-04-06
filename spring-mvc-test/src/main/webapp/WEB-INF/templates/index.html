@@ -16,10 +16,12 @@
 <a th:href="@{/aaa/com}">测试注解@RequestMapping的ant格式</a><br>
 <a th:href="@{/test/placehold/admin/1}">测试注解@RequestMapping的占位符格式</a><br>
 <hr>
-<form th:action="@{/params}" method="post">
-    <input type="text" name="userName">
+<form th:action="@{/param/pojo}" method="post">
+    <input type="text" name="username">
     <input type="password" name="password">
     <input type="submit" value="登录">
 </form>
+<hr>
+<a th:href="@{/test/mav}">测试通过ModelAndView向请求域共享数据</a>
 </body>
 </html>
