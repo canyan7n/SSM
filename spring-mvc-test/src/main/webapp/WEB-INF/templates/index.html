@@ -22,7 +22,15 @@
     <input type="submit" value="登录">
 </form>
 <hr>
-<a th:href="@{/test/mav}">测试通过ModelAndView向请求域共享数据</a>
-<h1>gitee</h1>
+<a th:href="@{/test/mav}">测试通过ModelAndView向请求域共享数据</a><br>
+<a th:href="@{/test/model}">测试通过Model向请求域共享数据</a><br>
+<a th:href="@{/test/modelmap}">测试通过ModelMap向请求域共享数据</a><br>
+<a th:href="@{/test/map}">测试通过Map向请求域共享数据</a><br>
+<a th:href="@{/test/session}">测试通过HttpSession向session域共享数据</a><br>
+<a th:href="@{/test/application}">测试通过ServletContext向application域共享数据</a><br>
+<hr>
+<a th:href="@{/test/view/thymeleaf}">测试springMVC视图thymeleaf</a><br>
+<a th:href="@{/test/view/forword}">测试springMVC视图InternalResource</a><br>
+<a th:href="@{/test/view/redirect}">测试springMVC视图RedirectView</a><br>
 </body>
 </html>

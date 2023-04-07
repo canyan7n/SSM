@@ -17,25 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class TestRequestMapping {
 
-    @RequestMapping("/")
-    public String index(){
-        return "index";
-    }
-
-    @RequestMapping(value = {"/hello","/hello1"},
-                method = {RequestMethod.POST,RequestMethod.GET},
-//                params = {"username","!password","age=21","gender!=男"}
-                headers = {"referer"}
-    )
-    public String hello(){
-        return "success";
-    }
-
-    @RequestMapping("/**/com")
-    public String testant(){
-        return "complete";
-    }
-
     @RequestMapping("test/placehold/{username}/{id}")
     public String testplacehold(@PathVariable("username") String username, @PathVariable("id") Integer id){
         System.out.println("id=" + id + ",username=" + username);
