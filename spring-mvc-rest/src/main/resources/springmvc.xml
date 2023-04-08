@@ -27,6 +27,15 @@
         </property>
     </bean>
 
+<!--    配置默认的DefaultServlet处理静态资源
+        当前工程的web.xml配置的前端控制器DispatcherServlet的url-pattern是/
+        tomcat的web.xml配置的DefualtServlet的url-pattern也是/
+        两者冲突了，优先使用工程的web.xml
+        开启mvc:default-servlet-handler，浏览器发送的所有请求都会被DefualtServlet处理
+        如果开启mvc:annotation-driven，浏览器发送的所有请求都会先被DispatcherServlet处理，
+        处理不了静态资源，在交给defaultServlet处理    -->
+<!--开启默认servlet，处理静态资源-->
+    <mvc:default-servlet-handler />
 <!--    开启mvc注解驱动-->
     <mvc:annotation-driven></mvc:annotation-driven>
 <!--    视图控制器-->

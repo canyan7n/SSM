@@ -77,9 +77,9 @@ public class EmployeeController {
     }
 
     //删除
-    @DeleteMapping("/employee")
-    public String testDeleteEmployee(Employee employee){
-        employeeDao.delete(employee.getId());
+    @DeleteMapping("/employee/{id}")
+    public String testDeleteEmployee(@PathVariable("id") Integer id){
+        employeeDao.delete(id);
         return "redirect:/employee";
     }
 }
