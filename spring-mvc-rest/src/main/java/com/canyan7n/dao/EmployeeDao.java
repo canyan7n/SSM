@@ -1,6 +1,7 @@
 package com.canyan7n.dao;
 
 import com.canyan7n.pojo.Employee;
+import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -13,6 +14,7 @@ import java.util.Map;
  * @date ：2023/4/8 11:34
  * @description：TODO
  */
+@Repository
 public class EmployeeDao {
 
     private static Map<Integer, Employee> employees = null;
