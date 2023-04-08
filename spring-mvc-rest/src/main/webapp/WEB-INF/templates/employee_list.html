@@ -22,10 +22,13 @@
         <td th:text="${employee.email}"></td>
         <td th:text="${employee.gender}"></td>
         <td>
-            <a href="">delete</a>
-            <a href="">update</a>
+            <a th:href="@{'/employee/'+${employee.id}}">delete</a>
+            <a th:href="@{'/employee/'+${employee.id}}">update</a>
         </td>
     </tr>
 </table>
+<form method="post">
+    <input type="hidden" name="_method" value="delete">
+</form>
 </body>
 </html>

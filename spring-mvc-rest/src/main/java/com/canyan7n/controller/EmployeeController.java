@@ -5,10 +5,7 @@ import com.canyan7n.pojo.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -50,10 +47,10 @@ public class EmployeeController {
         return "employee_list";
     }
 
-    @RequestMapping ("/to/add")
-    public String testToAdd(){
-        return "employee_add";
-    }
+//    @RequestMapping ("/to/add")
+//    public String testToAdd(){
+//        return "employee_add";
+//    }
 
     //添加
     @PostMapping("/employee")
@@ -64,8 +61,25 @@ public class EmployeeController {
         return "redirect:/employee";
     }
     //修改
+    //先获取要修改的人 回显
+    @GetMapping("/employee/{id}")
+    public String testGetUpDateEmployee(@PathVariable("id") Integer id,Model model){
+        Employee employee = employeeDao.get(id);
+        model.addAttribute("employee",employee);
+        return "employee_updata";
+    }
+
+    //修改
     @PutMapping("/employee")
-    public String testInsertEmployee(){
-        return "";
+    public String testUpDataEmployee(Employee employee){
+        employeeDao.save(employee);
+        return "redirect:/employee";
+    }
+
+    //删除
+    @DeleteMapping("/employee")
+    public String testDeleteEmployee(Employee employee){
+        employeeDao.delete(employee.getId());
+        return "redirect:/employee";
     }
 }

@@ -31,4 +31,6 @@
     <mvc:annotation-driven></mvc:annotation-driven>
 <!--    视图控制器-->
     <mvc:view-controller path="/" view-name="index"></mvc:view-controller>
+    <mvc:view-controller path="/to/add" view-name="employee_add"></mvc:view-controller>
+    <mvc:view-controller path="/to/updata" view-name="employee_updata"></mvc:view-controller>
 </beans>
