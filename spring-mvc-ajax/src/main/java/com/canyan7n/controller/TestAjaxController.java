@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.*;
 
 /**
  * @author ：macheng
@@ -33,6 +34,10 @@ public class TestAjaxController {
         System.out.println(user);
         response.getWriter().write("hello,json");
     }
+    /*public void testRequestBody(@RequestBody Map<String, Objects> map, HttpServletResponse response) throws IOException {
+        System.out.println(map);
+        response.getWriter().write("hello,json");
+    }*/
 
     @RequestMapping("/test/responseBody")
     @ResponseBody
@@ -42,8 +47,26 @@ public class TestAjaxController {
 
     @RequestMapping("/test/responseBody/json")
     @ResponseBody
-    public User testResponseBodyJson(){
+    public List<User> testResponseBodyJson(){
+        User user1 = new User(1001,"admins1","123",22,"女");
+        User user2 = new User(1002,"admins2","123",22,"女");
+        User user3 = new User(1003,"admins3","123",22,"女");
+        List<User> list = new ArrayList<>();
+        list = Arrays.asList(user1,user2,user3);
+        return list;
+    }
+    /*public Map testResponseBodyJson(){
+        User user1 = new User(1001,"admins1","123",22,"女");
+        User user2 = new User(1002,"admins2","123",22,"女");
+        User user3 = new User(1003,"admins3","123",22,"女");
+        Map<String,Object> map = new HashMap<>();
+        map.put("1001",user1);
+        map.put("1002",user2);
+        map.put("1003",user3);
+        return map;
+    }*/
+    /*public User testResponseBodyJson(){
         User user = new User(1002,"admins","123",22,"女");
         return user;
-    }
+    }*/
 }
