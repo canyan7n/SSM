@@ -24,7 +24,8 @@ public class TestProtalControleer {
 //                params = {"username","!password","age=21","gender!=男"}
             headers = {"referer"}
     )
-    public String hello(){
+    public String hello(String username){
+        System.out.println("username=" + username);
         return "success";
     }
 

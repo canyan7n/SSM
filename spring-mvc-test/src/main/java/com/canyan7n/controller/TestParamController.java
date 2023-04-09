@@ -2,9 +2,7 @@ package com.canyan7n.controller;
 
 import com.canyan7n.pojo.User;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -32,15 +30,15 @@ public class TestParamController {
 //        System.out.println("password=" + password);
 //        return "success";
 //    }
-    @RequestMapping("/params")
-    public String getParamByFormal(/*@RequestParam(value = "username",required = false,defaultValue = "hello")String username, @RequestParam("password") String password,*/
-        @RequestHeader(value = "referer",required = false,defaultValue = "hello") String referer,
-        @CookieValue(value = "JSESSIONID",required = false,defaultValue = "hello") String jsessionid)
+    @RequestMapping(value = "/params",method = RequestMethod.POST)
+    public String getParamByFormal(@RequestParam(value = "username",required = false,defaultValue = "hello")String username, @RequestParam("password") String password
+        /*@RequestHeader(value = "referer",required = false,defaultValue = "hello") String referer,
+        @CookieValue(value = "JSESSIONID",required = false,defaultValue = "hello") String jsessionid*/)
     {
-        System.out.println(referer);
-        System.out.println(jsessionid);
-//        System.out.println("username=" + username);
-//        System.out.println("password=" + password);
+//        System.out.println(referer);
+//        System.out.println(jsessionid);
+        System.out.println("username=" + username);
+        System.out.println("password=" + password);
         return "success";
     }
 

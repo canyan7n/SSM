@@ -1,8 +1,10 @@
 package com.canyan7n.controller;
 
+import com.canyan7n.pojo.User;
 import com.sun.deploy.net.HttpResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,5 +25,11 @@ public class TestAjaxController {
         System.out.println(request.getMethod());
         System.out.println("id=" + id);
         response.getWriter().write("hello,ajax");
+    }
+
+    @RequestMapping("/test/requestBody/json")
+    public void testRequestBody(@RequestBody User user,HttpServletResponse response,HttpServletRequest request) throws IOException {
+        System.out.println(user);
+        response.getWriter().write("hello,json");
     }
 }
