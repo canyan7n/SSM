@@ -30,14 +30,14 @@ public class TestAjaxController {
     }
 
     @RequestMapping("/test/requestBody/json")
-    public void testRequestBody(@RequestBody User user,HttpServletResponse response) throws IOException {
+    /*public void testRequestBody(@RequestBody User user,HttpServletResponse response) throws IOException {
         System.out.println(user);
         response.getWriter().write("hello,json");
-    }
-    /*public void testRequestBody(@RequestBody Map<String, Objects> map, HttpServletResponse response) throws IOException {
+    }*/
+    public void testRequestBody(@RequestBody Map<String, Object> map, HttpServletResponse response) throws IOException {
         System.out.println(map);
         response.getWriter().write("hello,json");
-    }*/
+    }
 
     @RequestMapping("/test/responseBody")
     @ResponseBody
