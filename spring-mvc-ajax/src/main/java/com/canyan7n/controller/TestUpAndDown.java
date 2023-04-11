@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
@@ -47,5 +48,28 @@ public class TestUpAndDown {
         //关闭输入流
         is.close();
         return responseEntity;
+    }
+
+    @RequestMapping("/test/up")
+    //上传的文件绑定到MultipartFile,name要对应
+    //需要由文件上传解析器支持
+    public String testUp(MultipartFile photo, HttpSession session) throws IOException {
+        //获取上传的文件名
+        String filename = photo.getOriginalFilename();
+        //获取servletContext对象
+        ServletContext servletContext = session.getServletContext();
+        //获取当前工程下，要上传的路径
+        String photoPath = servletContext.getRealPath("photo");
+        //创建photoPath对应的file对象
+        File file = new File(photoPath);
+        //判断这个photoPath是否存在
+        if(!file.exists()){
+            file.mkdir();
+        }
+        //获取上传的全路径：上传路径+文件名
+        String finalPath = photoPath + File.separator + filename;
+        //文件上传
+        photo.transferTo(new File(finalPath));
+        return "success";
     }
 }
