@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.UUID;
 
 /**
  * @author ：macheng
@@ -56,6 +57,9 @@ public class TestUpAndDown {
     public String testUp(MultipartFile photo, HttpSession session) throws IOException {
         //获取上传的文件名
         String filename = photo.getOriginalFilename();
+        String hz = filename.substring(filename.lastIndexOf("."));
+        UUID uuid = UUID.randomUUID();
+        filename = uuid + hz;
         //获取servletContext对象
         ServletContext servletContext = session.getServletContext();
         //获取当前工程下，要上传的路径
