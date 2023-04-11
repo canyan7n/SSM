@@ -17,16 +17,16 @@
             <th>gender</th>
             <th>option(<a th:href="@{/to/add}">add</a>)</th>
         </tr>
-        <tr th:each="employee:${allEmployee}">
-            <td th:text="${employee.id}"></td>
-            <td th:text="${employee.lastName}"></td>
-            <td th:text="${employee.email}"></td>
-            <td th:text="${employee.gender}"></td>
-            <td>
-                <a @click="deleteEmployee()" th:href="@{'/employee/'+${employee.id}}">delete</a>
-                <a th:href="@{'/employee/'+${employee.id}}">update</a>
-            </td>
-        </tr>
+            <tr th:each="employee:${allEmployee}">
+                <td th:text="${employee.id}"></td>
+                <td th:text="${employee.lastName}"></td>
+                <td th:text="${employee.email}"></td>
+                <td th:text="${employee.gender}"></td>
+                <td>
+                    <a @click="deleteEmployee()" th:href="@{'/employee/'+${employee.id}}">delete</a>
+                    <a th:href="@{'/employee/'+${employee.id}}">update</a>
+                </td>
+            </tr>
     </table>
     <form method="post">
         <input type="hidden" name="_method" value="delete">
