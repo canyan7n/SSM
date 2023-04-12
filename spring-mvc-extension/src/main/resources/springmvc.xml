@@ -43,4 +43,9 @@
 
 <!--    文件上传解析器-->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
+
+<!--    拦截器-->
+    <mvc:interceptors>
+        <bean class="com.canyan7n.interceptor.FirstInterceptor"></bean>
+    </mvc:interceptors>
 </beans>
