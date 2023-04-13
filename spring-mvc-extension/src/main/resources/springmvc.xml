@@ -48,14 +48,16 @@
     <mvc:interceptors>
 <!--        bean和ref标签配置的拦截器，默认拦截dispatchservlet处理的所有请求-->
 <!--        <bean class="com.canyan7n.interceptor.FirstInterceptor"></bean>-->
-<!--        <ref bean="firstInterceptor" />-->
-        <mvc:interceptor>
-<!--            需要拦截的路径 /**表示所有-->
-            <mvc:mapping path="/**"/>
-<!--            需要排除的路径-->
-            <mvc:exclude-mapping path="/abc"/>
-<!--            配置拦截器-->
-            <ref bean="firstInterceptor"></ref>
-        </mvc:interceptor>
+        <ref bean="firstInterceptor" />
+        <ref bean="secondInterceptor" />
+<!--        <mvc:interceptor>-->
+<!--&lt;!&ndash;            需要拦截的路径 /**表示所有&ndash;&gt;-->
+<!--&lt;!&ndash;            <mvc:mapping path="/**"/>&ndash;&gt;-->
+<!--&lt;!&ndash;            需要排除的路径&ndash;&gt;-->
+<!--&lt;!&ndash;            <mvc:exclude-mapping path="/abc"/>&ndash;&gt;-->
+<!--&lt;!&ndash;            配置拦截器&ndash;&gt;-->
+<!--            <ref bean="firstInterceptor"></ref>-->
+<!--        </mvc:interceptor>-->
     </mvc:interceptors>
+    
 </beans>
