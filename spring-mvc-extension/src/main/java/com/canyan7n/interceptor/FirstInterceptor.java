@@ -1,5 +1,6 @@
 package com.canyan7n.interceptor;
 
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -13,12 +14,13 @@ import javax.servlet.http.HttpServletResponse;
  * @date ：2023/4/12 22:27
  * @description：TODO
  */
+@Component
 public class FirstInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         System.out.println("FirstInterceptor-->preHandle");
-        return false;
+        return true;
     }
 
     @Override
