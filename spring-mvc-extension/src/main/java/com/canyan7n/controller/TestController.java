@@ -15,6 +15,7 @@ public class TestController {
 
     @RequestMapping("/test/hello")
     public String testHello(){
+        System.out.println(1/0);
         return "success";
     }
 }
