@@ -59,10 +59,12 @@
 <!--&lt;!&ndash;            <ref bean="firstInterceptor"></ref>&ndash;&gt;-->
 <!--&lt;!&ndash;        </mvc:interceptor>&ndash;&gt;-->
 <!--    </mvc:interceptors>-->
+
+<!--异常处理器-->
 <!--    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">-->
 <!--        <property name="exceptionMappings">-->
 <!--            <props>-->
-<!--&lt;!&ndash;                key的值就是要处理的异常，内容是要跳转的页面的逻辑视图&ndash;&gt;-->
+<!--&lt;!&ndash;                key就是要处理的异常，值是要跳转的页面的逻辑视图&ndash;&gt;-->
 <!--                <prop key="java.lang.ArithmeticException">error</prop>-->
 <!--            </props>-->
 <!--        </property>-->
