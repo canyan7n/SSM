@@ -18,13 +18,13 @@
 
 <!--    设置spring listener监听器，在服务器启动时加载spring的配置文件-->
 <!--    默认名字是WEB-INF/applicationContext.xml-->
-<!--    <listener>-->
-<!--        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
-<!--    </listener>-->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
 
-<!--&lt;!&ndash;    也可以自定义&ndash;&gt;-->
-<!--    <context-param>-->
-<!--        <param-name>contextConfigLocation</param-name>-->
-<!--        <param-value>classpath:spring.xml</param-value>-->
-<!--    </context-param>-->
+<!--    也可以自定义-->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:spring.xml</param-value>
+    </context-param>
 </web-app>

@@ -1,11 +1,9 @@
 package com.canyan7n.spring.dao.impl;
 
 import com.canyan7n.spring.dao.BookDao;
-import com.sun.xml.internal.ws.api.ha.StickyFeature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author ：macheng
