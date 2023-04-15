@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+
+    <!--局配置-->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    <!--    给包下的类起别名，默认是类名，不区分大小写-->
+
+    <!-- 引入mybatis映射文件 -->
+    <mappers>
+        <mapper resource=""/>
+    </mappers>
+</configuration>
