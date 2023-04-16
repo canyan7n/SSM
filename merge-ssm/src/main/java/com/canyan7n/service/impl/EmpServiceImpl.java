@@ -4,6 +4,7 @@ import com.canyan7n.mapper.EmpMapper;
 import com.canyan7n.service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author ：macheng
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
  * @description：TODO
  */
 @Service
+@Transactional
 public class EmpServiceImpl implements EmpService {
 
     @Autowired
